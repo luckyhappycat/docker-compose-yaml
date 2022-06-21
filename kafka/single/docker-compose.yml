@@ -13,7 +13,7 @@ services:
       #- ./zookeeper:/bitnami/zookeeper
       # 该镜像具体配置参考 https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
   kafka:
-    image: 'bitnami/kafka:3.2.0'
+    image: 'bitnami/kafka:2.4.0'
     container_name: kafka
     restart: always
     ports:
