@@ -29,7 +29,7 @@ services:
       # 允许使用PLAINTEXT协议(镜像中默认为关闭,需要手动开启)
       - ALLOW_PLAINTEXT_LISTENER=yes
       # 关闭自动创建 topic 功能
-      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=false
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
       # 全局消息过期时间 6 小时(测试时可以设置短一点)
       - KAFKA_CFG_LOG_RETENTION_HOURS=6
       # 开启JMX监控
