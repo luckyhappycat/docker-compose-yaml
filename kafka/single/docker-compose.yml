@@ -25,6 +25,7 @@ services:
       # 客户端访问地址，更换成自己的
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.6.150:9092
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
       # 允许使用PLAINTEXT协议(镜像中默认为关闭,需要手动开启)
       - ALLOW_PLAINTEXT_LISTENER=yes
       # 关闭自动创建 topic 功能
