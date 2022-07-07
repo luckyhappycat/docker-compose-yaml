@@ -1,0 +1,47 @@
+version: '3'
+
+networks:
+    monitor:
+        driver: bridge
+
+services:
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        hostname: prometheus
+        restart: always
+        volumes:
+            - /data/docker/data/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+            - /data/docker/data/prometheus/data:/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--storage.tsdb.path=/prometheus'
+        ports:
+            - "9090:9090"
+        networks:
+            - monitor
+
+    alertmanager:
+        image: prom/alertmanager:latest
+        container_name: alertmanager
+        hostname: alertmanager
+        restart: always
+        volumes:
+            - /data/docker/data/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+        ports:
+            - "9093:9093"
+        networks:
+            - monitor
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        hostname: grafana
+        restart: always
+        volumes:
+            - /data/docker/data/grafana/data:/var/lib/grafana
+        ports:
+            - "3000:3000"
+        networks:
+            - monitor
+
