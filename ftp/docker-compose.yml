@@ -1,0 +1,15 @@
+version: '3'
+services:
+  vsftpd:
+    image: 'vsftpd-centos8:latest'
+    container_name: vsftpd
+    volumes:
+      - /data/docker/data/vsftpd:/home/vsftpd
+    ports:
+      - "20:20"
+      - "21:21"
+      - "21100-21110:21100-21110"
+    environment:
+      TZ: "Asia/Shanghai"
+    network_mode: bridge
+    restart: always
