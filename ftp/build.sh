@@ -1,1 +1,1 @@
-docker build -t vsftpd-centos7 .
+docker build -t vsftpd-centos8 .
