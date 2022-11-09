@@ -27,7 +27,7 @@ scrape_configs:
 
     static_configs:
       - targets: ["localhost:9090"]
-      
-  - job_name: "linux"
+
+  - job_name: "node_exporter"
     static_configs:
-      - targets: ["192.168.12.249:9100"]
+      - targets: ["192.168.12.248:9100"]
